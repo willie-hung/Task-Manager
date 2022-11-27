@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
-
 {% block head %}
 <title>🕹️ Your Task Manager</title>
 {% endblock %}
-
 {% block body %}
 <div class="content">
     <h1 style="text-align: center;">Task Manager</h1>
-
     <img src="https://i.postimg.cc/HLL7rxMs/joystick.webp" class="center">
-
     {% if tasks|length < 1 %}
     <h4 style="text-align: center;">There are no tasks. Create one below!</h4>
     {% else %}
@@ -38,7 +34,6 @@
         {% endfor %}
     </table>
     {% endif %}
-    
     <form style="text-align: center;" action="/" method="POST">
         <input type="test" name="content" id="content">
         <input type="submit" value="Add">
