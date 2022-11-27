@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>🕹️ Your Task Manager</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Task Manager</h1>
+
+    <img src="https://i.postimg.cc/HLL7rxMs/joystick.webp" class="center">
+
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center;">There are no tasks. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">
+                        <button class="button-85" role="button">Delete</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/update/{{task.id}}">
+                        <button class="button-85" role="button">Update</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    
+    <form style="text-align: center;" action="/" method="POST">
+        <input type="test" name="content" id="content">
+        <input type="submit" value="Add">
+    </form>
+
+</div>
+{% endblock %}
