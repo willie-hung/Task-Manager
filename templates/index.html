@@ -1,13 +1,18 @@
+<!--index.html-->
 {% extends 'base.html' %}
+<!--對應到base.html裡的jinja2 head tag-->
 {% block head %}
 <title>🕹️ Your Task Manager</title>
 {% endblock %}
+<!--對應到base.html裡的jinja2 body tag-->
 {% block body %}
 <div class="content">
     <h1 style="text-align: center;">Task Manager</h1>
     <img src="https://i.postimg.cc/HLL7rxMs/joystick.webp" class="center">
+    <!--如果沒有task，顯示There are no task訊息-->
     {% if tasks|length < 1 %}
     <h4 style="text-align: center;">There are no tasks. Create one below!</h4>
+    <!--反之，如果有新的task，就會更新頁面-->
     {% else %}
     <table>
         <tr>
@@ -34,10 +39,10 @@
         {% endfor %}
     </table>
     {% endif %}
+    <!--這個form可以讓你填入你想加的task-->
     <form style="text-align: center;" action="/" method="POST">
         <input type="test" name="content" id="content">
         <input type="submit" value="Add">
     </form>
-
 </div>
 {% endblock %}

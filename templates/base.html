@@ -1,13 +1,17 @@
+<!--base.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--連結到main.css，之後我們會在static/css這個folder底下加入main.css-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">  
+    <!--選自己喜歡的字體樣式，網路上有很多選擇-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--Jinja2語法-->
     {% block head %}{% endblock %}
 </head>
 <body>
